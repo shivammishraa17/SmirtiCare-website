@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SmritiCare - AI-powered cognitive assistance and caregiver support for elderly care in North Eastern India.">
+<title>SmritiCare | Remember. Engage. Connect.</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#183b56;
+  background:#f7fbfd;
+  line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.95);
+  border-bottom:1px solid #e5eef2;
+  backdrop-filter:blur(10px)
+}
+.navbar{
+  height:72px;display:flex;align-items:center;
+  justify-content:space-between
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-size:22px;font-weight:800;color:#126782
+}
+.logo-icon{
+  width:42px;height:42px;border-radius:12px;
+  display:grid;place-items:center;
+  background:#dff5f4;font-size:22px
+}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:14px;color:#466273}
+.nav-links a:hover{color:#16839a}
+.app-btn{
+  background:#147d91;color:white!important;
+  padding:11px 18px;border-radius:10px;font-weight:700
+}
+
+.hero{
+  padding:85px 0 70px;
+  background:linear-gradient(135deg,#edfafa,#f7fbfd 55%,#eef5ff)
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:55px;align-items:center
+}
+.badge{
+  display:inline-block;padding:7px 13px;
+  border-radius:30px;background:#dff5f1;
+  color:#147b78;font-size:13px;font-weight:700;
+  margin-bottom:20px
+}
+h1{
+  font-size:clamp(42px,6vw,68px);
+  line-height:1.05;margin-bottom:20px;
+  color:#123c54
+}
+.gradient{color:#138294}
+.hero p{
+  font-size:18px;color:#607784;
+  max-width:650px;margin-bottom:28px
+}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.primary,.secondary{
+  padding:14px 22px;border-radius:11px;
+  font-weight:700;display:inline-block
+}
+.primary{background:#147d91;color:white}
+.secondary{
+  background:white;border:1px solid #cfe0e6;
+  color:#24566c
+}
+.hero-card{
+  background:white;border:1px solid #e1edf0;
+  border-radius:26px;padding:30px;
+  box-shadow:0 18px 50px rgba(27,91,110,.10)
+}
+.brain{
+  width:90px;height:90px;border-radius:25px;
+  background:#dff5f4;display:grid;place-items:center;
+  font-size:48px;margin-bottom:20px
+}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{
+  background:#f5fafb;border-radius:14px;padding:16px
+}
+.stat strong{display:block;font-size:25px;color:#147d91}
+.stat span{font-size:12px;color:#71848d}
+
+section{padding:80px 0}
+.section-title{text-align:center;max-width:700px;margin:0 auto 45px}
+.section-title h2{font-size:38px;color:#153f55;margin-bottom:12px}
+.section-title p{color:#6c808a}
+
+.problem{
+  background:#fff
+}
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:22px
+}
+.card{
+  background:white;border:1px solid #e2edf0;
+  padding:27px;border-radius:18px;
+  transition:.25s
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(25,88,108,.09)
+}
+.icon{
+  width:48px;height:48px;border-radius:13px;
+  background:#e5f6f5;display:grid;place-items:center;
+  font-size:23px;margin-bottom:17px
+}
+.card h3{margin-bottom:8px;color:#204b60}
+.card p{font-size:14px;color:#71828b}
+
+.roles{background:#f0f8fa}
+.role-card{
+  background:white;border-radius:20px;
+  padding:28px;border:1px solid #dcebed
+}
+.role-card .role-icon{font-size:34px;margin-bottom:12px}
+.role-card h3{font-size:21px;margin-bottom:8px}
+.role-card ul{padding-left:18px;color:#657983;font-size:14px}
+.role-card li{margin:6px 0}
+
+.features-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:20px
+}
+.feature{
+  display:flex;gap:18px;padding:23px;
+  background:white;border:1px solid #e2edf0;
+  border-radius:17px
+}
+.feature-icon{font-size:28px}
+.feature h3{font-size:17px;margin-bottom:5px}
+.feature p{font-size:13px;color:#71828b}
+
+.flow{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:15px
+}
+.flow-step{
+  text-align:center;padding:25px 15px;
+  background:white;border:1px solid #e1ecef;
+  border-radius:16px;position:relative
+}
+.flow-step span{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  background:#147d91;color:white;
+  margin:0 auto 13px;font-weight:700
+}
+.flow-step h3{font-size:16px}
+.flow-step p{font-size:12px;color:#74858d;margin-top:5px}
+
+.ner{
+  background:#123f55;color:white
+}
+.ner-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:50px;align-items:center
+}
+.ner h2{font-size:38px;margin-bottom:15px}
+.ner p{color:#c9dbe2}
+.ner-list{display:grid;gap:13px}
+.ner-item{
+  padding:16px 18px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px
+}
+
+.privacy{
+  background:#fff
+}
+.privacy-box{
+  background:#eef8f8;border:1px solid #d8eeee;
+  border-radius:20px;padding:35px;
+  text-align:center;max-width:850px;margin:auto
+}
+.privacy-box h2{margin-bottom:10px}
+.privacy-box p{color:#647983}
+
+.cta{
+  padding:75px 0;
+  background:linear-gradient(135deg,#e1f6f4,#edf5ff);
+  text-align:center
+}
+.cta h2{font-size:40px;margin-bottom:12px}
+.cta p{color:#657a84;margin-bottom:25px}
+
+footer{
+  background:#102f40;color:#c8d9df;
+  padding:35px 0
+}
+.footer{
+  display:flex;justify-content:space-between;
+  gap:20px;flex-wrap:wrap
+}
+.footer strong{color:white}
+.footer p{font-size:13px}
+.disclaimer{
+  margin-top:25px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.12);
+  font-size:11px;color:#91aab4
+}
+
+@media(max-width:800px){
+  .nav-links{display:none}
+  .hero-grid,.ner-grid{grid-template-columns:1fr}
+  .cards,.flow{grid-template-columns:1fr 1fr}
+  .features-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .cards,.flow{grid-template-columns:1fr}
+  section{padding:60px 0}
+  .hero{padding:60px 0}
+  h1{font-size:44px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container navbar">
+  <a href="#" class="logo">
+    <span class="logo-icon">🧠</span>
+    SmritiCare
+  </a>
+
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#roles">Users</a>
+    <a href="#ner">NER Focus</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#app" class="app-btn">Open App</a>
+  </div>
+</div>
+</nav>
+
+<section class="hero" id="about">
+<div class="container hero-grid">
+
+<div>
+  <span class="badge">AI-POWERED ELDERLY CARE • NORTH EASTERN INDIA</span>
+
+  <h1>
+    Remember.<br>
+    <span class="gradient">Engage. Connect.</span>
+  </h1>
+
+  <p>
+    SmritiCare is an AI-powered cognitive assistance and caregiver
+    support platform designed to help elderly users stay engaged,
+    follow daily routines and remain connected with their families.
+  </p>
+
+  <div class="buttons">
+    <a href="#app" class="primary">Explore SmritiCare →</a>
+    <a href="#features" class="secondary">See Features</a>
+  </div>
+</div>
+
+<div class="hero-card">
+  <div class="brain">🧠</div>
+  <h2>Personalized Cognitive Support</h2>
+  <p style="color:#71828b;margin:10px 0 25px">
+    Adaptive activities, voice assistance, reminders and caregiver
+    insights — designed with elderly-friendly interaction in mind.
+  </p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <strong>5+</strong>
+      <span>Supported Languages</span>
+    </div>
+    <div class="stat">
+      <strong>3</strong>
+      <span>User Roles</span>
+    </div>
+    <div class="stat">
+      <strong>AI</strong>
+      <span>Adaptive Activities</span>
+    </div>
+    <div class="stat">
+      <strong>24/7</strong>
+      <span>Family Connectivity</span>
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section class="problem">
+<div class="container">
+
+<div class="section-title">
+  <h2>The Challenge</h2>
+  <p>
+    Elderly people and their families can face challenges with
+    cognitive engagement, routine management and continuous support,
+    especially in remote and underserved areas.
+  </p>
+</div>
+
+<div class="cards">
+  <div class="card">
+    <div class="icon">🧩</div>
+    <h3>Cognitive Engagement</h3>
+    <p>
+      Limited access to regular cognitive activities can make
+      consistent engagement difficult.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">👨‍👩‍👧</div>
+    <h3>Caregiver Challenges</h3>
+    <p>
+      Families may struggle to continuously monitor routines,
+      activities and day-to-day engagement.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📶</div>
+    <h3>Low Connectivity</h3>
+    <p>
+      Rural and remote communities need solutions that remain useful
+      even with limited internet connectivity.
+    </p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section id="features">
+<div class="container">
+
+<div class="section-title">
+  <h2>One Platform. Multiple Layers of Support.</h2>
+  <p>
+    SmritiCare brings cognitive activities, assistance, reminders
+    and caregiver monitoring into one simple platform.
+  </p>
+</div>
+
+<div class="features-grid">
+
+  <div class="feature">
+    <div class="feature-icon">🎮</div>
+    <div>
+      <h3>Adaptive Cognitive Games</h3>
+      <p>Memory, attention, pattern recognition and problem-solving activities with adaptive difficulty.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🎙️</div>
+    <div>
+      <h3>Voice AI Assistant</h3>
+      <p>Voice-based interaction for navigation, reminders, games and everyday assistance.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🌐</div>
+    <div>
+      <h3>Multilingual Support</h3>
+      <p>Designed for English, Hindi, Assamese, Khasi and Meitei interactions.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">⏰</div>
+    <div>
+      <h3>Smart Reminders</h3>
+      <p>Support for medicines, hydration, appointments and important daily activities.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">📊</div>
+    <div>
+      <h3>Progress & Insights</h3>
+      <p>Activity trends and report cards help caregivers understand engagement over time.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">📴</div>
+    <div>
+      <h3>Offline-First Design</h3>
+      <p>Core activities can remain available during low connectivity with later synchronization.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🏠</div>
+    <div>
+      <h3>Daily Routine Recall</h3>
+      <p>A simple timeline helps users follow and recall their everyday activities.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🔐</div>
+    <div>
+      <h3>Privacy & Consent</h3>
+      <p>Role-based access and consent-focused design help protect sensitive user information.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+
+<section class="roles" id="roles">
+<div class="container">
+
+<div class="section-title">
+  <h2>Built for Everyone Around the User</h2>
+  <p>Different experiences for patients, families and authorized healthcare workers.</p>
+</div>
+
+<div class="cards">
+
+<div class="role-card">
+  <div class="role-icon">👴</div>
+  <h3>Patient</h3>
+  <ul>
+    <li>Simple cognitive activities</li>
+    <li>Voice-first assistance</li>
+    <li>Daily reminders & routine</li>
+    <li>Personal progress</li>
+  </ul>
+</div>
+
+<div class="role-card">
+  <div class="role-icon">👨‍👩‍👧</div>
+  <h3>Caregiver / Family</h3>
+  <ul>
+    <li>Activity monitoring</li>
+    <li>Weekly & monthly reports</li>
+    <li>Family notifications</li>
+    <li>Inactivity alerts</li>
+  </ul>
+</div>
+
+<div class="role-card">
+  <div class="role-icon">🩺</div>
+  <h3>Healthcare Worker</h3>
+  <ul>
+    <li>Authorized patient overview</li>
+    <li>Cognitive activity insights</li>
+    <li>Analytics & reports</li>
+    <li>Support for early intervention</li>
+  </ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title">
+  <h2>How SmritiCare Works</h2>
+  <p>A simple cycle designed around engagement, assistance and connection.</p>
+</div>
+
+<div class="flow">
+  <div class="flow-step">
+    <span>1</span>
+    <h3>Engage</h3>
+    <p>Complete personalized cognitive activities.</p>
+  </div>
+
+  <div class="flow-step">
+    <span>2</span>
+    <h3>Adapt</h3>
+    <p>AI adjusts activity difficulty using performance trends.</p>
+  </div>
+
+  <div class="flow-step">
+    <span>3</span>
+    <h3>Assist</h3>
+    <p>Voice assistant and reminders support daily tasks.</p>
+  </div>
+
+  <div class="flow-step">
+    <span>4</span>
+    <h3>Connect</h3>
+    <p>Caregivers receive meaningful activity insights.</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section class="ner" id="ner">
+<div class="container ner-grid">
+
+<div>
+  <span class="badge">DESIGNED FOR THE NORTH EAST</span>
+  <h2>Technology that feels familiar.</h2>
+  <p>
+    SmritiCare focuses on culturally relevant experiences so that
+    digital interaction can feel more natural and comfortable for
+    elderly users across the North Eastern Region.
+  </p>
+</div>
+
+<div class="ner-list">
+  <div class="ner-item">🗣️ Multilingual & voice interaction</div>
+  <div class="ner-item">🍲 Familiar food & everyday objects</div>
+  <div class="ner-item">🏞️ Regionally familiar places & situations</div>
+  <div class="ner-item">📱 Simple elderly-friendly interface</div>
+  <div class="ner-item">📶 Designed for low-connectivity environments</div>
+</div>
+
+</div>
+</section>
+
+<section id="privacy" class="privacy">
+<div class="container">
+
+<div class="privacy-box">
+  <h2>Privacy Comes First 🔐</h2>
+  <p>
+    SmritiCare is designed around consent, secure access and
+    responsible handling of user information. The platform provides
+    cognitive activity and engagement insights — it is not intended
+    to replace professional medical diagnosis or treatment.
+  </p>
+</div>
+
+</div>
+</section>
+
+<section class="cta" id="app">
+<div class="container">
+  <h2>Ready to explore SmritiCare?</h2>
+  <p>
+    Experience a technology-first approach to elderly cognitive
+    assistance and caregiver connectivity.
+  </p>
+
+  <!-- Replace # with your public SmritiCare app URL after deployment -->
+  <a href="#" class="primary" onclick="alert('The SmritiCare app will be connected here after public deployment.'); return false;">
+    Open SmritiCare App →
+  </a>
+</div>
+</section>
+
+<footer>
+<div class="container footer">
+  <div>
+    <div class="logo">
+      <span class="logo-icon">🧠</span>
+      SmritiCare
+    </div>
+    <p style="margin-top:8px">
+      Remember. Engage. Connect.
+    </p>
+  </div>
+
+  <div>
+    <p><strong>AI-powered cognitive assistance</strong></p>
+    <p>Designed for elderly care in North Eastern India.</p>
+  </div>
+</div>
+
+<div class="container disclaimer">
+  SmritiCare is a student-built technology concept for cognitive
+  assistance, engagement and caregiver support. It does not provide
+  medical diagnosis or replace professional healthcare.
+</div>
+</footer>
+
+</body>
+</html>
